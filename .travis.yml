@@ -12,7 +12,7 @@ matrix:
       language: objective-c
       script: &tests
         - swift package update
-        - swift test
+        - swift build
 
     - &linux
       name: "Check if it compiles and runs on Linux"
