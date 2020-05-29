@@ -11,8 +11,8 @@ matrix:
       sudo: required
       language: objective-c
       script: &tests
-				- swift package update
-        - swift test
+	- swift package update
+	- swift test
 
     - &linux
       name: "Check if it compiles and runs on Linux"
