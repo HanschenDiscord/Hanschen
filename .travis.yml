@@ -17,7 +17,7 @@ matrix:
     - &linux
       name: "Check if it compiles and runs on Linux"
       os: linux
-      dist: xenial
+      dist: bionic
       sudo: required
       before_install:
         - sudo apt-get install clang libicu-dev
