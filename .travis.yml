@@ -21,7 +21,7 @@ matrix:
       sudo: required
       language: objective-c
       before_install:
-        - sudo apt-get install clang libicu-dev
+        - apt-get install clang libicu-dev
         - mkdir swift
         - export SWIFT_ARCHIVE_URL="https://swift.org/builds/swift-5.0.3-release/ubuntu1604/swift-5.0.3-RELEASE/swift-5.0.3-RELEASE-ubuntu16.04.tar.gz"
         - curl ${SWIFT_ARCHIVE_URL} -o ../swift.tar.gz
