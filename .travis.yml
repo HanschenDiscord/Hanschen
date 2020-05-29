@@ -11,7 +11,7 @@ matrix:
       sudo: required
       language: objective-c
       script: &tests
-				- swift package update
+        - swift package update
         - swift test
 
     - &linux
