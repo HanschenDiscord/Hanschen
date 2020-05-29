@@ -1,0 +1,31 @@
+branches:
+  except: # Version Tags
+    - /^\d+\.\d+\.\d+(\-\S*)?(\+\S*)?$/
+
+matrix:
+  include:
+    - &macos
+      name: "Check if it compiles and runs on macOS"
+      os: osx
+      osx_image: xcode10.3
+      sudo: required
+      language: objective-c
+      script: &tests
+				- swift package update
+        - swift test
+
+    - &linux
+      name: "Check if it compiles and runs on Linux"
+      os: linux
+      dist: xenial
+      sudo: required
+      language: objective-c
+      before_install:
+        - sudo apt-get install clang libicu-dev
+        - mkdir swift
+        - export SWIFT_ARCHIVE_URL="https://swift.org/builds/swift-5.0.3-release/ubuntu1604/swift-5.0.3-RELEASE/swift-5.0.3-RELEASE-ubuntu16.04.tar.gz"
+        - curl ${SWIFT_ARCHIVE_URL} -o ../swift.tar.gz
+        - mkdir ../swift
+        - tar xzf ../swift.tar.gz -C ../swift --strip-components 2
+        - export PATH="$(dirname $(pwd))/swift/bin:$PATH"
+      script: *tests
