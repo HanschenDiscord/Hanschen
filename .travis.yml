@@ -28,3 +28,12 @@ matrix:
         - tar xzf ../swift.tar.gz -C ../swift --strip-components 2
         - export PATH="$(dirname $(pwd))/swift/bin:$PATH"
       script: *tests
+      
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
