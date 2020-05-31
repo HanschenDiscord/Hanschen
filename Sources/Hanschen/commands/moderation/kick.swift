@@ -24,6 +24,7 @@ extension Shield {
 				return
 			}
 			
+			
 			// Drop the mention from the args
 			let newArgs = args.dropFirst()
 			
@@ -40,3 +41,4 @@ extension Shield {
 		}
 	}
 }
+

@@ -50,16 +50,9 @@ extension Shield {
 			// Duplicate a new array and append the mutedRole
 			var targetRoleIds = targetMember.roles.map { $0.id.rawValue }
 			targetRoleIds.append(mutedRole.id.rawValue)
-			print(targetRoleIds)
 
 			// Apply the role "muted" to the targetUser:
 			guild.modifyMember(targetUser.id, with: ["roles": targetRoleIds])
-			
-//			guild.modifyMember(targetUser.id, with: ["roles": targetMember.roles.map { $0.id.rawValue } + [mutedRole.id.rawValue]]) { error in
-//				guard error == nil else { em.description = "\(error!)"; msg.reply(with: em); return }
-//				em.description = "Successfully muted <@\(targetUser.id)> because: \(reason)"
-//				msg.reply(with: em)
-//				}
 			
 			em.description = "Successfully muted <@\(targetUser.id)> because: \(reason)"
 			msg.reply(with: em)

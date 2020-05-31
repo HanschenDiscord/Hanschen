@@ -5,11 +5,15 @@ let options = ShieldOptions(prefixes: ["@bot", "h!"], willBeCaseSensitive: false
 
 let client = Shield(token: Config().token!, shieldOptions: options)
 
+
 // Events:
 client.addReadyEvent()
 client.addMessageCreateEvent()
 client.addGuildCreateEvent()
 client.addGuildDeleteEvent()
+
+// Auto-Moderation
+//client.addAutoModSpam()
 
 // Commands:
 // > General
@@ -17,6 +21,7 @@ client.addInfoCmd()
 client.addPingCmd()
 client.addShardInfoCmd()
 client.addInviteCmd()
+client.addAboutCmd()
 
 // > Moderation
 client.addBanCmd()

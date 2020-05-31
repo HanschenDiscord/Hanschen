@@ -1,7 +1,7 @@
 import Sword
 
 var infoMeta = CommandOptions(
-	aliases: ["info", "i", "about"],
+	aliases: ["info", "i"],
 	description: "Shows you bot information.")
 
 extension Shield {
